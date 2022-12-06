@@ -5,15 +5,15 @@
 
 
 
-├──usr/ 
-│  └── share/
-│      ├── jitsi-meet
-│      ├── jitsi-meet-turnserver
-│      ├── jitsi-meet-web-config
-│      ├── jitsi-videobridge   
-│      └── jicofo
-│
-└── etc/
+usr/ 
+   └──share/
+      ├── jitsi-meet
+      ├── jitsi-meet-turnserver
+      ├── jitsi-meet-web-config
+      ├── jitsi-videobridge   
+      └── jicofo
+
+ etc/
     ├── coturn/ 
     │    ├── jitsi.blc-meet.com.fullchain.pem   
     │    └── jitsi.blc-meet.com.privkey.pem
