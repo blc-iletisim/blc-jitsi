@@ -1,8 +1,8 @@
 #sistemi güncelleyelim
-sudo apt-get update -y
+apt-get update -y
 
 #install coturn
-sudo apt-get install coturn -y
+apt-get install coturn -y
 
 echo "TURNSERVER_ENABLED=1" >> /etc/default/coturn
 
@@ -13,47 +13,47 @@ systemctl start coturn
 mv /etc/turnserver.conf /etc/turnserver.conf.backup
 
 #coturn restart
-sudo service coturn restart
+service coturn restart
 
 
 #domaini variable al
-sudo hostnamectl set-hostname jitsi.gizempesen.com
+hostnamectl set-hostname jitsi.gizempesen.com
 
 #bu komutu echo ile yazdır
-echo "84.44.28.75 jitsi.gizempesen.com" >> /etc/hosts
+#echo "84.44.28.75 jitsi.gizempesen.com" >> /etc/hosts
 
 # Ensure support for apt repositories served via HTTPS
-sudo apt install apt-transport-https -y
+apt-get install apt-transport-https -y
 
-sudo apt-add-repository universe
+apt-add-repository universe
 
-sudo apt update -y
+apt-get update -y
 
-#portlara izin verilmesi
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
-sudo ufw allow 4443/tcp
-sudo ufw allow 10000/udp
-sudo ufw allow 22/tcp
+##portlara izin verilmesi
+#ufw allow 80/tcp
+#ufw allow 443/tcp
+#ufw allow 4443/tcp
+#ufw allow 10000/udp
+#ufw allow 22/tcp
 #turnserver
-sudo ufw allow 3478/udp
-sudo ufw allow 5349/tcp
+#ufw allow 3478/udp
+#ufw allow 5349/tcp
 #external jibri service
-sudo ufw allow 5222/tcp
+#ufw allow 5222/tcp
 
 
 
 echo deb http://packages.prosody.im/debian $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list
 wget https://prosody.im/files/prosody-debian-packages.key -O- | sudo apt-key add -
-apt install lua5.2 -y
+apt-get install lua5.2 -y
 
 curl https://download.jitsi.org/jitsi-key.gpg.key | sudo sh -c 'gpg --dearmor > /usr/share/keyrings/jitsi-keyring.gpg'
 echo 'deb [signed-by=/usr/share/keyrings/jitsi-keyring.gpg] https://download.jitsi.org stable/' | sudo tee /etc/apt/sources.list.d/jitsi-stable.list > /dev/null
 
-sudo apt update -y
+apt-get update -y
 
 # jitsi-meet installation
-sudo apt install jitsi-meet -y
+apt-get install jitsi-meet -y
 
 #jitsi gpg key
 #wget https://download.jitsi.org/jitsi-key.gpg.key
@@ -77,7 +77,7 @@ sudo apt install jitsi-meet -y
 #---enter domain name and generate self signed certificate
 
 #run letsencryipt
-sudo /usr/share/jitsi-meet/scripts/install-letsencrypt-cert.sh
+#sudo /usr/share/jitsi-meet/scripts/install-letsencrypt-cert.sh
 
 #---sip-communicator.properties
 #nano /etc/jitsi/videobridge/sip-communicator.properties
